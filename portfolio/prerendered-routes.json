@@ -1,8 +1,8 @@
 {
   "routes": [
     "/",
-    "/portfolio/contact",
-    "/portfolio/projects",
-    "/portfolio/resume"
+    "/contact",
+    "/projects",
+    "/resume"
   ]
 }
