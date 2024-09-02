@@ -1,40 +1,4 @@
-/* landing-page.component.css */
-
-/* Welcome Message */
-.welcome-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 1; /* Ensure it appears above other content if necessary */
-  opacity: 1;
-  animation: fadeOut 2s forwards; /* Apply the fade-out animation */
-}
-
-.welcome-message h2 {
-  font-size: 2rem;
-  margin: 0;
-}
-
-.welcome-message p {
-  font-size: 1.2rem;
-  margin: 10px 0 0;
-}
-
-/* Keyframes for fading out */
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
-/* landing-page.component.css */
+/* Landing Page Styles */
 .landing-page {
   background-color: black;
   color: white;
@@ -75,6 +39,7 @@
   margin-bottom: 40px;
 }
 
+/* Hero Buttons */
 .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
   padding: 10px 30px;
   font-size: 1.2rem;
@@ -82,14 +47,8 @@
   text-decoration: none;
   margin: 0 10px;
   color: white;
-}
-
-.hero-buttons .btn-primary {
-  background-color: #007bff;
-}
-
-.hero-buttons .btn-secondary {
-  background-color: #28a745;
+  cursor: pointer; /* Add hand cursor */
+  touch-action: manipulation; /* Improve touch interaction */
 }
 
 /* Tread design (vertical line) */
