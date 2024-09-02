@@ -1,0 +1,34 @@
+  
+  header {
+    background: transparent; /* Semi-transparent background */
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+  }
+  
+
+  
+  nav ul li a.active {
+    text-decoration: underline;
+  }
+  header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li {
+    margin: 0 20px;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }

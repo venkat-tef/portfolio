@@ -1,0 +1,45 @@
+/* contact.component.css */
+.contact-container {
+    padding: 30px;
+    background-color: white;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+  }
+  

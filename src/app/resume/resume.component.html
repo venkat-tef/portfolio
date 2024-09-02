@@ -1,0 +1,70 @@
+<!-- resume.component.html -->
+<div class="resume-container">
+  <header class="resume-header">
+    <div class="profile-header">
+      <img src="../../assets/resume-image.jfif" alt="Profile Picture" class="profile-picture"/>
+      <div class="header-text">
+        <h1>{{ name }}</h1>
+        <p>{{ title }} - {{ location }}</p>
+        <p><a [href]="linkedin" target="_blank">LinkedIn Profile</a> | {{ email }} | {{ phone }}</p>
+      </div>
+    </div>
+    <a (click)="downloadPDF()" class="download-btn">
+      <img src="assets/download-icon.png" alt="Download Resume" />
+      Download Resume
+    </a>
+    
+  </header>
+
+  <section class="summary">
+    <h2>Professional Summary</h2>
+    <p>{{ summary }}</p>
+  </section>
+
+  <section class="experience">
+    <h2>Work Experience</h2>
+    <div *ngFor="let exp of experiences" class="experience-item">
+      <h3>{{ exp.role }} - {{ exp.company }}</h3>
+      <p><strong>{{ exp.location }}</strong> | {{ exp.period }}</p>
+      <p>{{ exp.description }}</p>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li *ngFor="let skill of skills">{{ skill }}</li>
+    </ul>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <div *ngFor="let project of projects" class="project-item">
+      <h3>{{ project.name }} - {{ project.role }}</h3>
+      <p><strong>{{ project.organization }}</strong> | {{ project.period }}</p>
+      <p>{{ project.description }}</p>
+    </div>
+  </section>
+
+  <section class="education">
+    <h2>Education</h2>
+    <div *ngFor="let edu of education" class="education-item">
+      <h3>{{ edu.degree }}</h3>
+      <p>{{ edu.field }} - {{ edu.institution }} | {{ edu.year }}</p>
+    </div>
+  </section>
+
+  <section class="languages">
+    <h2>Languages</h2>
+    <ul>
+      <li *ngFor="let lang of languages">{{ lang.language }}: {{ lang.proficiency }}</li>
+    </ul>
+  </section>
+
+  <section class="interests">
+    <h2>Interests</h2>
+    <ul>
+      <li *ngFor="let interest of interests">{{ interest }}</li>
+    </ul>
+  </section>
+</div>
