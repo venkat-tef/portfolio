@@ -1,14 +1,68 @@
-/* landing.component.css */
-.landing-page {
-  background: linear-gradient(to right, #2193b0, #6dd5ed);
+/* landing-page.component.css */
+
+/* Welcome Message */
+.welcome-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  padding: 100px 0;
+  z-index: 1; /* Ensure it appears above other content if necessary */
+  opacity: 1;
+  animation: fadeOut 2s forwards; /* Apply the fade-out animation */
+}
+
+.welcome-message h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.welcome-message p {
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+}
+
+/* Keyframes for fading out */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 
+/* landing-page.component.css */
+.landing-page {
+  background-color: black;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+/* Hero Section */
 .hero-section {
-  margin-top: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
+  color: white;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-section h1 {
@@ -36,4 +90,68 @@
 
 .hero-buttons .btn-secondary {
   background-color: #28a745;
+}
+
+/* Tread design (vertical line) */
+.tread-design {
+  position: absolute;
+  width: 5px;
+  height: 100px;
+  background-color: red;
+  bottom: 0;
+  right: 0;
+}
+
+/* Show the hero section */
+.hero-section.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tread-design.show-thread {
+  transform: translateY(0);
+  opacity: 1; /* Fade in the thread design */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem; /* Smaller font size for mobile */
+  }
+
+  .hero-section p {
+    font-size: 1rem; /* Smaller font size for mobile */
+    margin-bottom: 20px; /* Reduced margin */
+  }
+
+  .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
+    padding: 8px 20px; /* Smaller padding for mobile */
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .tread-design {
+    width: 4px; /* Slightly thinner line for mobile */
+    height: 80px; /* Adjust height for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.8rem; /* Further reduced font size for very small screens */
+  }
+
+  .hero-section p {
+    font-size: 0.9rem; /* Further reduced font size for very small screens */
+    margin-bottom: 15px; /* Further reduced margin */
+  }
+
+  .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
+    padding: 6px 15px; /* Further reduced padding */
+    font-size: 0.9rem; /* Further reduced font size */
+  }
+
+  .tread-design {
+    width: 3px; /* Thinner line for very small screens */
+    height: 60px; /* Shorter line for very small screens */
+  }
 }

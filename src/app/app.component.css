@@ -1,34 +1,141 @@
-  
-  header {
-    background: transparent; /* Semi-transparent background */
-    padding: 10px 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    position: fixed;
-  }
-  
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  
-  nav ul li a.active {
-    text-decoration: underline;
+/* Header Styles */
+header {
+  background: linear-gradient(to right, #2193b0, #6dd5ed); /* Semi-transparent background */
+  padding: 10px 20px;
+  width: 100%;
+  z-index: 1000;
+  position: relative; /* Use relative positioning to ensure flow of content */
+}
+
+/* Navigation Styles */
+header nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin: 0 20px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+header nav ul li a.active {
+  text-decoration: underline;
+}
+
+/* Global Container */
+.resume-container {
+  max-width: 100%;
+  /* margin: 2rem auto; */
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  animation: fadeIn 1.5s ease-in-out;
+  padding-top: 70px; /* Ensure there's enough space for the fixed header */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .resume-container {
+    padding: 1.5rem;
+    padding-top: 80px; /* Adjusted to make room for mobile header */
   }
-  header nav ul {
-    display: flex;
-    justify-content: flex-end;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+
+  .profile-picture {
+    width: 100px;
+    height: 100px;
   }
-  
-  header nav ul li {
-    margin: 0 20px;
+
+  .header-text h1 {
+    font-size: 1.5rem;
   }
-  
-  header nav ul li a {
-    color: white;
-    text-decoration: none;
+
+  .header-text p {
+    font-size: 0.9rem;
+  }
+
+  .download-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  h2 {
     font-size: 1.2rem;
   }
+
+  .experience-item, .project-item, .education-item {
+    padding: 0.8rem;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right, #2193b0, #6dd5ed); /* Consistent with header */
+    padding: 1rem;
+    margin: 0; /* Remove margin to ensure proper spacing */
+    width: 100%;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+
+  header nav ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-container {
+    padding: 1rem;
+    padding-top: 90px; /* Adjusted to make room for mobile header */
+  }
+
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+  }
+
+  .header-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .header-text p {
+    font-size: 0.8rem;
+  }
+
+  .download-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .experience-item, .project-item, .education-item {
+    padding: 0.6rem;
+  }
+
+  header nav ul li a {
+    font-size: 0.9rem;
+  }
+}
