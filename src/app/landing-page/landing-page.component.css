@@ -11,6 +11,8 @@
   z-index: 1; /* Ensure it appears above other content if necessary */
   opacity: 1;
   animation: fadeOut 2s forwards; /* Apply the fade-out animation */
+  animation-delay: 1.20s; /* Delay the animation by 2 seconds */
+  user-select: none; /* Prevent text selection */
 }
 
 .welcome-message h2 {
@@ -56,12 +58,18 @@
   background: linear-gradient(to right, #2193b0, #6dd5ed);
   color: white;
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(-100%); /* Start off-screen at the top */
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Ensure touch interactions are optimized */
+.hero-buttons {
+  touch-action: manipulation; /* Improve touch interaction */
 }
 
 .hero-section h1 {
@@ -83,7 +91,8 @@
   margin: 0 10px;
   color: white;
   cursor: pointer; /* Add hand cursor */
-  touch-action: manipulation; /* Improve touch interaction */
+  user-select: none; /* Prevent text selection on buttons */
+  touch-action: manipulation; /* Ensure buttons are clickable */
 }
 
 /* Tread design (vertical line) */
@@ -98,7 +107,7 @@
 
 /* Show the hero section */
 .hero-section.show {
-  transform: translateY(0);
+  transform: translateY(0); /* Move to original position */
   opacity: 1;
 }
 
