@@ -1,3 +1,37 @@
+/* landing-page.component.css */
+
+/* Welcome Message */
+.welcome-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1; /* Ensure it appears above other content if necessary */
+  opacity: 1;
+  animation: fadeOut 2s forwards; /* Apply the fade-out animation */
+}
+
+.welcome-message h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.welcome-message p {
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+}
+
+/* Keyframes for fading out */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /* Landing Page Styles */
 .landing-page {
   background-color: black;
