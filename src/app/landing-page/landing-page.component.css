@@ -129,8 +129,6 @@
   }
 
   .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
-    padding: 8px 20px; /* Smaller padding for mobile */
-    font-size: 1rem; /* Smaller font size for mobile */
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
@@ -152,8 +150,8 @@
   }
 
   .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
-    padding: 6px 15px; /* Further reduced padding */
-    font-size: 0.9rem; /* Further reduced font size */
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 
   .tread-design {
