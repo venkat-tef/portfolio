@@ -93,6 +93,7 @@
   cursor: pointer; /* Add hand cursor */
   user-select: none; /* Prevent text selection on buttons */
   touch-action: manipulation; /* Ensure buttons are clickable */
+  border: none;
 }
 
 /* Tread design (vertical line) */
@@ -130,6 +131,8 @@
   .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
     padding: 8px 20px; /* Smaller padding for mobile */
     font-size: 1rem; /* Smaller font size for mobile */
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 
   .tread-design {
