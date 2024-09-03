@@ -21,7 +21,7 @@ export class LandingPageComponent implements OnInit {
         if (heroSection) {
           this.renderer.addClass(heroSection, 'show');
         }
-      }, 2000); // 2 seconds delay
+      }, 20000); // 2 seconds delay
     }
   }
 }
