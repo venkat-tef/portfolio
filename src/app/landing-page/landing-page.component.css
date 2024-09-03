@@ -65,7 +65,7 @@
   align-items: center;
   user-select: none; /* Prevent text selection */
   z-index: 10;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 /* Ensure touch interactions are optimized */
