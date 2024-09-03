@@ -161,3 +161,46 @@
     height: 60px; /* Shorter line for very small screens */
   }
 }
+
+
+/* testing */
+
+.download-btn {
+  background-color: #007BFF;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+  .download-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+ 
+
+  .download-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+ 
+}
