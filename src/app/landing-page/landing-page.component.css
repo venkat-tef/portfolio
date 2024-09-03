@@ -2,16 +2,16 @@
 
 /* Welcome Message */
 .welcome-message {
+  margin-top: 220px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(12, 11, 11);
   text-align: center;
   z-index: 1; /* Ensure it appears above other content if necessary */
   opacity: 1;
-  animation: fadeOut 2s forwards; /* Apply the fade-out animation */
-  animation-delay: 1.20s; /* Delay the animation by 2 seconds */
+  
   user-select: none; /* Prevent text selection */
 }
 
