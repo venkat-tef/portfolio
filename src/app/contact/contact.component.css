@@ -201,3 +201,26 @@
     padding: 6px 12px; /* Further reduced padding */
   }
 }
+/* Popup Container */
+#success-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #28a745; /* Green background for success */
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  
+}
+
+/* Popup Visible */
+#success-message.show {
+  opacity: 1;
+  visibility: visible;
+}

@@ -8,60 +8,37 @@
     <div class="edit">
       <h1 style="color: #007bff; margin-bottom: 20px;">Hello, {{ var_greetings }}</h1>
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <label for="name" style="font-weight: bold;">NAME</label>
+        <input type="text" id="name" placeholder="Enter Your Name" formControlName="name" required />
+      
+        <!-- Email Field -->
+        <label for="email" style="font-weight: bold;">EMAIL</label>
+        <input type="text" id="email" placeholder="Enter Your Email" formControlName="email" required />
+      
+        <!-- Message Field -->
+        <label for="message" style="font-weight: bold;">MESSAGE</label>
+        <textarea id="message" placeholder="Enter Your Message" formControlName="message" required></textarea>
+      
+        <!-- Error Message Element -->
+        <p id="error-message" *ngIf="showError">
+          <span style="color: red;">There was an error submitting the form. Please try again.</span>
+        </p>
+      
+        <!-- Success Message Element -->
+        <div id="success-message"  [ngClass]="{ 'show': showSuccess }">
+          <p>Form submitted successfully!</p>
+        </div>
+      
         <div>
-          <!-- Name Field -->
-          <label for="name" style="font-weight: bold;">NAME</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Enter Your Name"
-            formControlName="name"
-            required
-          />
-
-          <!-- Email Field -->
-          <label for="email" style="font-weight: bold;">EMAIL</label>
-         
-          <input
-          type="text"
-          id="email"
-          placeholder="Enter Your Email"
-          formControlName="email"
-          required
-        />
-
-          <!-- Message Field -->
-          <label for="message" style="font-weight: bold;">MESSAGE</label>
-          <textarea
-            id="message"
-            placeholder="Enter Your Message"
-            formControlName="message"
-            required
-          ></textarea>
-
-          <!-- Error Message Element -->
-          <p id="error-message" *ngIf="showError">
-            <span style="color: red;"
-              >There was an error submitting the form. Please try again.</span
-            >
-          </p>
-
-          <!-- Success Message Element -->
-          <p id="success-message" *ngIf="showSuccess">
-            Form submitted successfully!
-          </p>
-
-          <div>
-            <!-- Submit button -->
-            <button type="submit" id="submit-button">Submit</button>
-
-            <!-- Create button, hidden by default -->
-            <button type="button" id="create-button" style="display: none">
-              Create
-            </button>
-          </div>
+          <!-- Submit button -->
+          <button type="submit" id="submit-button">Submit</button>
+      
+          <!-- Create button, hidden by default -->
+          <button type="button" id="create-button" style="display: none">Create</button>
         </div>
       </form>
+      
     </div>
   </main>
 </div>
