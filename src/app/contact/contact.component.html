@@ -1,22 +1,67 @@
-<div class="contact-container">
-    <h1>Contact Me</h1>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name" required />
+<div class="outer">
+  <main class="main">
+    <div class="header">
+      <div class="logo-container">
+        <img class="logo" />
       </div>
-  
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email" required />
-      </div>
-  
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" formControlName="message" rows="5" required></textarea>
-      </div>
-  
-      <button type="submit" class="btn-primary">Send Message</button>
-    </form>
-  </div>
-  
+    </div>
+    <div class="edit">
+      <h1 style="color: #007bff; margin-bottom: 20px;">Hello, {{ var_greetings }}</h1>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div>
+          <!-- Name Field -->
+          <label for="name" style="font-weight: bold;">NAME</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter Your Name"
+            formControlName="name"
+            required
+          />
+
+          <!-- Email Field -->
+          <label for="email" style="font-weight: bold;">EMAIL</label>
+         
+          <input
+          type="text"
+          id="email"
+          placeholder="Enter Your Email"
+          formControlName="email"
+          required
+        />
+
+          <!-- Message Field -->
+          <label for="message" style="font-weight: bold;">MESSAGE</label>
+          <textarea
+            id="message"
+            placeholder="Enter Your Message"
+            formControlName="message"
+            required
+          ></textarea>
+
+          <!-- Error Message Element -->
+          <p id="error-message" *ngIf="showError">
+            <span style="color: red;"
+              >There was an error submitting the form. Please try again.</span
+            >
+          </p>
+
+          <!-- Success Message Element -->
+          <p id="success-message" *ngIf="showSuccess">
+            Form submitted successfully!
+          </p>
+
+          <div>
+            <!-- Submit button -->
+            <button type="submit" id="submit-button">Submit</button>
+
+            <!-- Create button, hidden by default -->
+            <button type="button" id="create-button" style="display: none">
+              Create
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
