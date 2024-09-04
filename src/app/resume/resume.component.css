@@ -177,3 +177,8 @@ ul li {
     padding: 0.6rem;
   }
 }
+
+
+.hidden {
+  display: none;
+}

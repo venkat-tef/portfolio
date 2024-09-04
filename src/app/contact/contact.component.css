@@ -1,4 +1,30 @@
+/* Contact Container */
+.outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Main Content Styling */
+.main {
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header Styling */
 .header {
   background-color: transparent;
   color: #fff;
@@ -16,56 +42,40 @@
   margin-right: auto; /* Pushes the logo to the left, making room for the text */
 }
 
-
-.main {
-  /* background-image: url("../TefLogo.png"); */
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  height: 100vh; /* Full viewport height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Outer container with background */
-.outer {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Styling for the form container */
+/* Form Container Styling */
 .edit {
   text-align: center;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(173, 216, 230, 0.8) 100%); /* Gradient from white to light blue */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 400px; /* Limit maximum width */
-  margin: 0 auto; /* Center horizontally */
+  width: 90%; /* Increased width for better fit */
+  max-width: 600px; /* Increased max-width for more space */
+  min-width: 450px;
+  margin: 50px auto 0; /* Center horizontally with top margin of 100px */
+  zoom:95%;
 }
 
-/* Style for form labels */
+/* Form Title Styling */
+.edit h1 {
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 2rem; /* Adjust font size for better readability */
+}
+
+/* Label Styling */
 .edit label {
   display: block;
   margin: 10px 0 5px;
   font-size: 14px;
+  font-weight: bold;
   color: #333;
 }
-/* Style for input fields */
+
+/* Input Fields Styling */
 .edit input[type="text"],
-.edit input[type="password"] {
+.edit input[type="email"],
+.edit textarea {
   -webkit-appearance: none; /* Remove default browser styles */
   -moz-appearance: none;
   appearance: none;
@@ -75,23 +85,32 @@
   border: 1px solid #007bff;
   border-radius: 5px;
   font-size: 14px;
- 
+  background-color: #f9f9f9; /* Light background for input fields */
 }
 
-/* Autofill override for Chrome and other browsers */
+/* Textarea Styling */
+.edit textarea {
+  resize: vertical; /* Allow vertical resizing */
+  height: 150px; /* Fixed height for consistency */
+  padding: 10px;
+  width: calc(100% - 22px); /* Full width minus padding */
+}
+
+/* Autofill Override for Chrome and Other Browsers */
 .edit input:-webkit-autofill {
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 0px 1000px rgba(255, 255, 255, 0.8) inset; /* Reset autofill background */
   transition: background-color 5000s ease-in-out 0s; /* Prevent flashing when autofill */
   -webkit-text-fill-color: #333; /* Ensure text color is correct */
 }
 
-.edit input[type="text"]:focus,
-.edit input[type="password"]:focus {
+/* Input Focus Effect */
+.edit input:focus,
+.edit textarea:focus {
   box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2); /* Stronger inner shadow on focus */
+  outline: none; /* Remove default focus outline */
 }
 
-
-/* Center buttons within the form */
+/* Button Styling */
 .edit button {
   padding: 10px 20px;
   margin: 10px 5px;
@@ -109,7 +128,7 @@
   background-color: #0056b3;
 }
 
-/* Style for error and success messages */
+/* Error and Success Messages */
 #error-message,
 #success-message {
   margin-top: 10px;
@@ -122,4 +141,63 @@
 
 #success-message {
   color: green;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .edit {
+    padding: 15px;
+    /* width: 45%; */
+    /* max-width: 40%; */
+    zoom: 85%;
+    margin-top: 215px;
+  }
+
+  .edit h1 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+
+  .edit input[type="text"],
+  .edit input[type="email"],
+  .edit textarea {
+    font-size: 13px; /* Adjust font size for better readability on small screens */
+  }
+
+  .edit textarea {
+    height: 120px; /* Adjust textarea height for smaller screens */
+  }
+
+  .edit button {
+    font-size: 14px; /* Smaller font size for mobile buttons */
+    padding: 8px 16px; /* Adjust padding for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .edit {
+    padding: 15px;
+    /* width: 45%; */
+    /* max-width: 40%; */
+    zoom: 70%;
+    margin-top: 190px;
+  }
+
+  .edit h1 {
+    font-size: 1.2rem; /* Further reduced font size */
+  }
+
+  .edit input[type="text"],
+  .edit input[type="email"],
+  .edit textarea {
+    font-size: 12px; /* Further adjusted font size */
+  }
+
+  .edit textarea {
+    height: 100px; /* Further reduced height for textarea */
+  }
+
+  .edit button {
+    font-size: 13px; /* Further reduced font size */
+    padding: 6px 12px; /* Further reduced padding */
+  }
 }

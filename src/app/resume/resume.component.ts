@@ -9,80 +9,82 @@ import * as html2pdf from 'html2pdf.js';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
-  name = 'Venkat Narayana Kothakota';
-  title = 'Frontend Developer';
-  location = 'Hyderabad';
-  linkedin = 'https://www.linkedin.com/in/venkat-narayana-kothakota-5b28a01a1';
-  email = 'kothakotavenkatnarayana@gmail.com';
-  phone = '8179518097';
 
-  summary = `Experienced and certified Frontend Developer skilled in HTML, CSS, Bootstrap, Typescript, Javascript, Vue, and Angular. 
-             Proven track record in issue resolution and collaborative problem-solving. Eager to contribute expertise to your company's success.`;
+    name = 'Venkat Narayana Kothakota';
+    title = 'UI Developer';
+    location = 'Hyderabad, India';
+    linkedin = 'https://www.linkedin.com/in/venkat-narayana-kothakota-5b28a01a1';
+    email = 'kothakotavenkatnarayana@gmail.com';
+    phone = '+91 8179518097';
+  
+    summary = `UI Developer with 3+ years of experience designing and implementing user-centric interfaces. Skilled in HTML, CSS, JavaScript, and Angular, with a solid understanding of responsive design and accessibility standards. Demonstrated success in collaborating with cross-functional teams to enhance user experiences. Proven track record of delivering high-quality, engaging interfaces that improve user satisfaction and drive project success.`;
+  
+    experiences = [
+      {
+        role: 'UI Developer',
+        company: 'Tata Consultancy Services',
+        location: 'Hyderabad, India',
+        period: '2023 - Present',
+        description: `<ul>
+                         <li>Created and optimized user interfaces for websites and applications, collaborating with designers and backend developers to enhance integration, functionality, and user experience, resulting in a 20% improvement in user engagement.</li>
+                         <li>Designed and implemented intuitive user interfaces for three web applications, leading to a 40% decrease in user support inquiries and improving functionality for over 500 daily active users.</li>
+                         <li>Led the incorporation of front-end technologies to enhance user interactions across more than 10 web applications, optimizing performance and reducing page load time by 15 seconds.</li>
+                         <li>Executed thorough testing and debugging of UI components and API integrations, identifying and resolving issues to improve performance and ensure seamless functionality, reducing bugs by 40%.</li>
+                         <li>Utilized HTML, CSS, and JavaScript to design and implement responsive and interactive UI elements, enhancing user engagement and improving site responsiveness by 30%.</li>
+                       </ul>`
+      },
+      {
+        role: 'Frontend Developer',
+        company: 'Capgemini',
+        location: 'Hyderabad, India',
+        period: '2021 - 2023',
+        description: `<ul>
+                         <li>Implemented responsive design and optimized website performance using HTML, CSS, and JavaScript, leading to a 25% increase in page load speed and improved user satisfaction.</li>
+                         <li>Proactively stayed up-to-date with industry trends and best practices in front-end development, continuously enhancing skills and adopting emerging technologies to drive innovation and maintain a competitive edge.</li>
+                         <li>Created custom components using Angular, which enhanced design consistency across five different projects; this approach reduced development time for future features by an estimated 30 hours per project on average.</li>
+                         <li>Developed unit tests for UI elements to ensure functionality before deployment; achieving zero bugs reported post-launch among more than ten applications released during a two-year period.</li>
+                       </ul>`
+      }
+    ];
+    
+  
+    skills = [
+      'Proficiency in HTML and CSS',
+      'Skilled in JavaScript, TypeScript, and Angular',
+      'Experience with Vue.js and Bootstrap',
+      'Knowledge of agile software development methodology',
+      'Proficient in UI Design and Problem Solving',
+      'Expertise in Front-End Development',
+      'Familiarity with Responsive Web Design'
+    ];
+  
+    education = [
+      {
+        degree: 'Electronics and Communication Engineering',
+        field: 'PACE Institute of Technology and Sciences',
+        institution: 'GPA: 6.5',
+        year: '2015 - 2019'
+      },
+      {
+        degree: 'Intermediate',
+        field: 'Sri Pratibha Junior College',
+        institution: 'GPA: 7.4',
+        year: '2013 - 2015'
+      }
+    ];
+  
+    languages = [
+      { language: 'English', proficiency: 'Fluent' }
+    ];
+  
+    interests = [
+      'Web Development',
+      'UI/UX Design',
+      'Technology Trends'
+    ];
+  
 
-  experiences = [
-    {
-      role: 'System Engineer',
-      company: 'Tata Consultancy Services (TCS)',
-      location: 'Hyderabad',
-      period: 'December 2023 – Present',
-      description: `Working as an Angular Developer. Utilized Scrum Agile methodology in daily work, including daily stand-ups, sprint planning, and collaboration with cross-functional teams. 
-                    Engaged in researching, designing, implementing, and managing software programs. Developed a deep understanding of the startup ecosystem, remaining adaptable to evolving requirements and industry trends.`
-    },
-    {
-      role: 'Frontend Developer',
-      company: 'Capgemini',
-      location: 'Hyderabad',
-      period: 'April 2021 – July 2023',
-      description: `Worked as a front-end developer focusing on Angular applications. Reviewed project requirements to uncover bugs and vulnerabilities, ensuring timely issue resolution.
-                    Translated UI/UX design wireframes into responsive and visually appealing web pages, ensuring seamless user experiences. Collaborated closely with the engineering team, applying Agile methodologies to achieve project milestones effectively.
-                    Optimized application performance for speed and compatibility across multiple browsers and devices. Maintained a client-first mentality, multitasking seamlessly to meet project deadlines and exceed client expectations.`
-    }
-  ];
-
-  skills = [
-    'HTML',
-    'CSS',
-    'Bootstrap',
-    'JavaScript',
-    'TypeScript',
-    'Angular',
-    'Vue'
-  ];
-
-  projects = [
-    {
-      name: 'Telefonica',
-      role: 'Angular Developer',
-      organization: 'Ico',
-      period: 'December 2023 – Present',
-      description: `Contributed as an Angular Developer, collaborating on the development of a user-focused client interface.`
-    },
-    {
-      name: 'Bewaak',
-      role: 'Frontend Developer',
-      organization: 'Capgemini',
-      period: 'January 2022 – July 2023',
-      description: `Created a project called Bewaak, which maintains data for individuals onboarding and offboarding from the client interface. Leveraged HTML, CSS, JavaScript, Typescript, and Angular to create a robust and user-friendly client interface.
-                    Developed a new admin panel, improving internal operating efficiency by over 95%.`
-    }
-  ];
-
-  education = [
-    {
-      degree: 'Bachelor of Engineering',
-      field: 'Electronics and Communication Engineering',
-      institution: 'Pace Institute of Technology and Sciences, Ongole',
-      year: '2015 – 2019'
-    }
-  ];
-
-  languages = [
-    { language: 'English', proficiency: 'Full Professional Proficiency' },
-    { language: 'Hindi', proficiency: 'Professional Working Proficiency' },
-    { language: 'Telugu', proficiency: 'Full Professional Proficiency' }
-  ];
-
-  interests = ['Music', 'Playing Cricket and Badminton'];
+  
 
   constructor() {}
 
@@ -92,9 +94,15 @@ export class ResumeComponent implements OnInit {
     if (typeof window !== 'undefined') {
       // Dynamically import html2pdf.js in the browser environment
       const html2pdf = (await import('html2pdf.js')).default;
-      
+  
+      // Temporarily hide the download button
+      const downloadButton = document.querySelector('.download-button');
+      if (downloadButton) {
+        downloadButton.classList.add('hidden');
+      }
+  
       const element = document.querySelector('.resume-container');
-
+  
       const options = {
         margin: 0.5,
         filename: 'Venkat_Narayana_Kothakota_Resume.pdf',
@@ -102,11 +110,19 @@ export class ResumeComponent implements OnInit {
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
-
+  
       html2pdf()
         .from(element)
         .set(options)
-        .save();
+        .save()
+        .finally(() => {
+          // Re-show the download button
+          if (downloadButton) {
+            downloadButton.classList.remove('hidden');
+          }
+        });
     }
   }
+  
+  
 }

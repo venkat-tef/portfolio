@@ -1,4 +1,3 @@
-<!-- resume.component.html -->
 <div class="resume-container">
   <header class="resume-header">
     <div class="profile-header">
@@ -6,14 +5,15 @@
       <div class="header-text">
         <h1>{{ name }}</h1>
         <p>{{ title }} - {{ location }}</p>
-        <p><a [href]="linkedin" target="_blank">LinkedIn Profile</a> | {{ email }} | {{ phone }}</p>
+        <p>
+          <a [href]="linkedin" target="_blank">LinkedIn Profile</a> |
+          {{ email }} | {{ phone }}
+        </p>
       </div>
     </div>
     <button (click)="downloadPDF()" class="download-btn">
-      
       Download Resume
     </button>
-    
   </header>
 
   <section class="summary">
@@ -26,24 +26,16 @@
     <div *ngFor="let exp of experiences" class="experience-item">
       <h3>{{ exp.role }} - {{ exp.company }}</h3>
       <p><strong>{{ exp.location }}</strong> | {{ exp.period }}</p>
-      <p>{{ exp.description }}</p>
+      <!-- Use [innerHTML] to bind HTML content -->
+      <div [innerHTML]="exp.description"></div>
     </div>
   </section>
-
+  
   <section class="skills">
     <h2>Skills</h2>
     <ul>
       <li *ngFor="let skill of skills">{{ skill }}</li>
     </ul>
-  </section>
-
-  <section class="projects">
-    <h2>Projects</h2>
-    <div *ngFor="let project of projects" class="project-item">
-      <h3>{{ project.name }} - {{ project.role }}</h3>
-      <p><strong>{{ project.organization }}</strong> | {{ project.period }}</p>
-      <p>{{ project.description }}</p>
-    </div>
   </section>
 
   <section class="education">
