@@ -1,20 +1,28 @@
 /* landing-page.component.css */
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 /* Welcome Message */
 .welcome-message {
+  margin-top: 220px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(12, 11, 11);
   text-align: center;
   z-index: 1; /* Ensure it appears above other content if necessary */
-  opacity: 1;
-  animation: fadeOut 2s forwards; /* Apply the fade-out animation */
-  animation-delay: 1.20s; /* Delay the animation by 2 seconds */
+  opacity: 0; /* Start with an opacity of 0 */
+  animation: fadeIn 2s ease-in forwards; /* Apply fade-in animation */
   user-select: none; /* Prevent text selection */
 }
-
 .welcome-message h2 {
   font-size: 2rem;
   margin: 0;
@@ -25,15 +33,6 @@
   margin: 10px 0 0;
 }
 
-/* Keyframes for fading out */
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 
 /* Landing Page Styles */
 .landing-page {
@@ -66,6 +65,7 @@
   align-items: center;
   user-select: none; /* Prevent text selection */
   z-index: 10;
+  padding: 0.5rem;
 }
 
 /* Ensure touch interactions are optimized */
