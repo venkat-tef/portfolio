@@ -1,0 +1,127 @@
+
+    .skills-section {
+      padding: 50px 0;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .skills-title {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    /* Unique card style */
+    .skill-card {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      width: 180px;
+      height: 220px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Skill logo inside circular container */
+    .skill-logo-wrapper {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: #f0f0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+      transition: background-color 0.3s;
+    }
+
+    .skill-card:hover .skill-logo-wrapper {
+      background-color: #007bff;
+    }
+
+    .skill-logo {
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover .skill-logo {
+      transform: rotate(360deg);
+    }
+
+    .skill-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .skills-title {
+        font-size: 2rem;
+      }
+
+      .skill-card {
+        width: 140px;
+        height: 180px;
+        margin: 10px;
+      }
+
+      .skill-logo-wrapper {
+        width: 80px;
+        height: 80px;
+      }
+
+      .skill-logo {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    /* Mobile-specific: Ensure a single-column layout for smaller screens */
+    @media (max-width: 576px) {
+      .row-1, .row-2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skill-card {
+        width: 120px;
+        height: 160px;
+      }
+
+      .skill-logo-wrapper {
+        width: 70px;
+        height: 70px;
+      }
+
+      .skill-logo {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* Unique arrangement: Upside-down triangle */
+    .row-1 {
+      justify-content: center;
+    }
+
+    .row-2 {
+      justify-content: center;
+    }
+
+    *{
+        zoom: 91%;
+    }
