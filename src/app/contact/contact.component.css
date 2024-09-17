@@ -45,7 +45,9 @@
 /* Form Container Styling */
 .edit {
   text-align: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(173, 216, 230, 0.8) 100%); /* Gradient from white to light blue */
+  background: linear-gradient(to bottom, #ffffff, #ffffff);
+
+  /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(173, 216, 230, 0.8) 100%);  */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

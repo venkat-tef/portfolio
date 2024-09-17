@@ -11,7 +11,7 @@ body {
 /* Header Styles */
 header {
   background: linear-gradient(to right, #008DDA, #00A9FF); /* Semi-transparent background */
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   /* width: 100%; */
   z-index: 1000;
   position: relative; /* Use relative positioning to ensure flow of content */

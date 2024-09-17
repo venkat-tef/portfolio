@@ -1,11 +1,24 @@
-<!-- projects.component.html -->
 <div class="projects-container">
-    <h1>My Projects</h1>
+  <h1>My Projects</h1>
+  <div class="project-cards">
     <div *ngFor="let project of projects" class="project-card">
-      <h2>{{ project.name }}</h2>
+      <img [src]="project.logo" alt="{{ project.name }} logo" class="project-logo"> <!-- Add logo here -->
+      <!-- <h2>{{ project.name }}</h2> -->
       <p><strong>{{ project.role }}</strong></p>
       <p><strong>{{ project.organization }}</strong></p>
-      <p>{{ project.description }}</p>
+      <button (click)="openDescription(project.description)">View Description</button>
+    </div>
+  </div>
+
+  <!-- Popup modal for the description -->
+  <div class="modal" *ngIf="showDescription">
+    <div class="modal-content">
+      <span class="close" (click)="closeDescription()">&times;</span>
+      <div class="modal-header">Project Description</div>
+      <div class="modal-body">
+        <p [innerHTML]="currentDescription"></p>
+      </div>
     </div>
   </div>
   
+</div>

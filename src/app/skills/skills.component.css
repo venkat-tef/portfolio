@@ -3,6 +3,7 @@
       padding: 50px 0;
       text-align: center;
       background-color: #fff;
+      zoom: 78%;
     }
 
     .skills-title {
@@ -111,6 +112,11 @@
         width: 40px;
         height: 40px;
       }
+      
+    .skills-section {
+    
+      zoom: 120%;
+    }
     }
 
     /* Unique arrangement: Upside-down triangle */
@@ -122,6 +128,6 @@
       justify-content: center;
     }
 
-    *{
-        zoom: 91%;
-    }
+    
+       
+  
