@@ -18,6 +18,10 @@ export class ContactComponent {
   var_timestamp = new Date();
   var_greetings: string = "";
 
+  readonly email = 'kothakotavenkatnarayana@gmail.com';
+  readonly phone = '+91 8179518097';
+  readonly linkedin = 'https://www.linkedin.com/in/venkat-narayana-kothakota-5b28a01a1';
+
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],

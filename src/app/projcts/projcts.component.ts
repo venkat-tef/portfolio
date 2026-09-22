@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-projcts',
@@ -72,12 +72,27 @@ export class ProjctsComponent {
   showDescription = false;
   currentDescription = '';
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   openDescription(description: string) {
     this.currentDescription = description;
     this.showDescription = true;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   closeDescription() {
     this.showDescription = false;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    if (this.showDescription) {
+      this.closeDescription();
+    }
   }
 }

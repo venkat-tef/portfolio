@@ -1,184 +1,151 @@
-/* Global Styles */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+.resume-page { background: var(--surface-50); }
 
 .resume-container {
-  max-width: 100%;
-  /* margin: 2rem auto; */
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  padding: 2rem;
-  animation: fadeIn 1.5s ease-in-out;
+  max-width: 880px;
+  background-color: var(--surface-0);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-lg);
+  padding: 3rem;
 }
 
 .resume-header {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  border-bottom: 2px solid #007BFF;
-  padding-bottom: 1rem;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .profile-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 1.5rem;
+  text-align: left;
 }
 
 .profile-picture {
-  width: 120px;
-  height: 120px;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
-  border: 4px solid #007BFF;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  border: 3px solid var(--surface-0);
+  box-shadow: var(--shadow-glow);
+  flex-shrink: 0;
 }
 
-.header-text h1 {
-  font-size: 2rem;
-  margin: 0;
-  color: #007BFF;
+.header-text .eyebrow { margin-bottom: 0.6rem; }
+.header-text h1 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 0.7rem; }
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 
-.header-text p {
-  margin: 0.3rem 0;
-  font-size: 1rem;
-  color: #666;
-}
-
-.header-text a {
-  color: #007BFF;
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-600);
+  background: var(--surface-100);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--r-pill);
   text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
 }
 
-.header-text a:hover {
-  text-decoration: underline;
-}
+a.contact-chip:hover { color: var(--accent-1); background: var(--accent-soft); }
+.contact-chip i { color: var(--accent-1); font-size: 0.78rem; }
 
-.download-btn {
-  background-color: #007BFF;
-  color: #ffffff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
+.download-btn { flex-shrink: 0; }
+
+.resume-block { margin-bottom: 2.2rem; }
+.resume-block:last-child { margin-bottom: 0; }
+
+.resume-block h2 {
   display: flex;
   align-items: center;
-  margin-top: 1rem;
-  transition: background-color 0.3s ease;
-  border: none;
-  cursor: pointer;
+  gap: 0.6rem;
+  font-size: 1.15rem;
+  color: var(--ink-800);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.1rem;
 }
 
-.download-btn:hover {
-  background-color: #0056b3;
+.resume-block h2 i { color: var(--accent-1); font-size: 0.95rem; }
+
+.timeline { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.experience-item {
+  position: relative;
+  background: var(--surface-50);
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--accent-1);
+  border-radius: var(--r-md);
+  padding: 1.25rem 1.4rem;
 }
 
+.experience-item h3 { font-size: 1.05rem; color: var(--ink-800); margin-bottom: 0.3rem; }
 
-
-h2 {
-  font-size: 1.5rem;
-  color: #007BFF;
-  margin-bottom: 0.8rem;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 0.4rem;
+.experience-meta {
+  font-size: 0.85rem;
+  color: var(--ink-500);
+  margin-bottom: 0.7rem;
 }
 
-.experience-item, .project-item, .education-item {
-  margin-bottom: 1.5rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.experience-desc ul { margin: 0; padding-left: 1.15rem; }
+.experience-desc li { margin-bottom: 0.5rem; color: var(--ink-600); }
+
+.education-item {
+  padding: 1rem 1.2rem;
+  background: var(--surface-50);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  margin-bottom: 0.9rem;
 }
 
-.experience-item h3, .project-item h3, .education-item h3 {
+.education-item:last-child { margin-bottom: 0; }
+.education-item h3 { font-size: 1rem; color: var(--ink-800); margin-bottom: 0.25rem; }
+.education-item p { color: var(--ink-500); font-size: 0.92rem; }
+
+.skill-pills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0;
   margin: 0;
-  color: #0056b3;
 }
 
-ul {
-  padding-left: 1.2rem;
+.skill-pills li {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-700);
+  background: var(--accent-grad-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-pill);
+  padding: 0.5rem 1rem;
 }
 
-ul li {
-  margin-bottom: 0.5rem;
-}
+.hidden { display: none; }
 
-/* Mobile Responsiveness */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-  .resume-container {
-    padding: 1.5rem;
-  }
-
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-  }
-
-  .header-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .header-text p {
-    font-size: 0.9rem;
-  }
-
-  .download-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  .experience-item, .project-item, .education-item {
-    padding: 0.8rem;
-  }
+  .resume-container { padding: 1.75rem; }
+  .profile-header { flex-direction: column; text-align: center; }
+  .contact-row { justify-content: center; }
+  .resume-header { flex-direction: column; align-items: center; text-align: center; }
+  .download-btn { width: 100%; justify-content: center; }
 }
 
 @media (max-width: 480px) {
-  .resume-container {
-    padding: 1rem;
-  }
-
-  .profile-picture {
-    width: 80px;
-    height: 80px;
-  }
-
-  .header-text h1 {
-    font-size: 1.2rem;
-  }
-
-  .header-text p {
-    font-size: 0.8rem;
-  }
-
-  .download-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-  }
-
-  h2 {
-    font-size: 1rem;
-  }
-
-  .experience-item, .project-item, .education-item {
-    padding: 0.6rem;
-  }
-}
-
-
-.hidden {
-  display: none;
+  .resume-container { padding: 1.25rem; }
+  .profile-picture { width: 84px; height: 84px; }
 }

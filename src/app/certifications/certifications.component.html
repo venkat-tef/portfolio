@@ -1,0 +1,24 @@
+<section class="certifications-section page-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow"><i class="fa-solid fa-award"></i>&nbsp;Credentials</span>
+      <h2>Certifications</h2>
+      <p>Courses and certifications I've completed.</p>
+    </div>
+
+    <div class="cert-grid">
+      <article
+        *ngFor="let cert of certifications; let i = index"
+        class="cert-card reveal"
+        [style.animation-delay.ms]="i * 90">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h3>{{ cert.title }}</h3>
+        <p class="cert-issuer">{{ cert.issuer }}</p>
+        <p class="cert-date">{{ cert.date }}</p>
+        <a *ngIf="cert.credentialUrl" [href]="cert.credentialUrl" target="_blank" rel="noopener" class="cert-link">
+          View credential <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,272 +1,625 @@
-/* Global Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .container {
-    /* max-width: 1200px; */
-    /* margin: 0 auto; */
-    /* padding: 1rem; */
-  }
-  
-  /* Responsive Container */
-  .container-fluid {
-    padding: 0 1rem;
-  }
-  
-  /* Flexbox Utilities */
-  .d-flex {
-    display: flex;
-  }
-  
-  .flex-column {
-    flex-direction: column;
-  }
-  
-  .justify-content-center {
-    justify-content: center;
-  }
-  
-  .align-items-center {
-    align-items: center;
-  }
-  
-  /* Responsive Typography */
-  h1 {
-    font-size: 2.5rem;
-    margin: 0;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  h3 {
-    font-size: 1.75rem;
-    margin-bottom: 0.6rem;
-  }
-  
-  p {
-    font-size: 1rem;
-    margin: 0;
-  }
-  
-  /* Buttons */
-  .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary {
-    background-color: #007BFF;
-    color: #ffffff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .btn-secondary {
-    background-color: #28a745;
-    color: #ffffff;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #218838;
-  }
-  
-  /* Card Component */
-  .card {
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .card-header {
-    font-size: 1.25rem;
-    border-bottom: 2px solid #007BFF;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Media Queries for Responsiveness */
-  
-  /* Tablets and smaller screens */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-    }
-  
-    h2 {
-      font-size: 1.5rem;
-    }
-  
-    h3 {
-      font-size: 1.25rem;
-    }
-  
-    p {
-      font-size: 0.9rem;
-    }
-  
-    .btn {
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-    }
-  
-    .card {
-      padding: 0.8rem;
-    }
-  
-    .container {
-      padding: 0 0.5rem;
-    }
-  }
-  
-  /* Mobile phones and very small screens */
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.5rem;
-    }
-  
-    h2 {
-      font-size: 1.2rem;
-    }
-  
-    h3 {
-      font-size: 1rem;
-    }
-  
-    p {
-      font-size: 0.8rem;
-    }
-  
-    .btn {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.8rem;
-    }
-  
-    .card {
-      padding: 0.6rem;
-    }
-  
-    .container {
-      padding: 0 0.5rem;
-    }
-  }
-  
-
-  
-
-  /* Color variables */
+/* =========================================================
+   Design tokens
+   ========================================================= */
 :root {
-  --white-color: #fff;
-  --bg-color: #fff;
-  --gray-color: #ccc;
+  /* Ink / neutrals */
+  --ink-900: #0b1220;
+  --ink-800: #0f172a;
+  --ink-700: #1e293b;
+  --ink-600: #334155;
+  --ink-500: #64748b;
+  --ink-400: #94a3b8;
+
+  /* Surfaces */
+  --surface-0: #ffffff;
+  --surface-50: #f8fafc;
+  --surface-100: #eef2f7;
+
+  --border: #e2e8f0;
+  --border-soft: rgba(15, 23, 42, 0.08);
+
+  /* Brand accent */
+  --accent-1: #2563eb;
+  --accent-2: #7c3aed;
+  --accent-3: #0ea5e9;
+
+  --accent-grad: linear-gradient(
+    135deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+
+  --accent-grad-soft: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.12),
+    rgba(124, 58, 237, 0.12)
+  );
+
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --accent-ring: rgba(37, 99, 235, 0.35);
+
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  /* Radius */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  /* Shadow */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.06);
+
+  --shadow-sm:
+    0 6px 16px -6px rgba(15, 23, 42, 0.12);
+
+  --shadow-md:
+    0 16px 40px -12px rgba(15, 23, 42, 0.18);
+
+  --shadow-lg:
+    0 28px 70px -20px rgba(15, 23, 42, 0.28);
+
+  --shadow-glow:
+    0 0 0 1px rgba(37, 99, 235, 0.14),
+    0 18px 40px -14px rgba(37, 99, 235, 0.35);
+
+  /* Type */
+  --font-display:
+    'Sora',
+    'Segoe UI',
+    system-ui,
+    sans-serif;
+
+  --font-body:
+    'Plus Jakarta Sans',
+    'Segoe UI',
+    system-ui,
+    sans-serif;
+
+  /* Layout */
+  --container-w: 1180px;
+  --nav-h: 76px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --dur-fast: 180ms;
+  --dur-med: 320ms;
+  --dur-slow: 620ms;
 }
 
-/* Changing background color */
+
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100%;
+}
+
 body {
-  background: var(--bg-color) !important;
+  margin: 0;
+  padding: 0;
+
+  min-height: 100vh;
+
+  font-family: var(--font-body);
+
+  background-color: var(--surface-50);
+  color: var(--ink-700);
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  line-height: 1.6;
+
+  /*
+   * IMPORTANT:
+   * Makes the complete application a vertical layout.
+   * This is what allows the footer to stay at the bottom.
+   */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Changing link color */
-.nav-item .nav-link {
-  color: var(--white-color);
+
+/* =========================================================
+   ANGULAR ROOT
+   ========================================================= */
+
+/*
+ * Angular renders the application inside <app-root>.
+ *
+ * Making app-root a full-height flex container allows:
+ *
+ * Header
+ * Main content
+ * Footer
+ *
+ * to occupy the complete viewport.
+ */
+
+app-root {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  width: 100%;
 }
 
-/* Hero section background image */
-.hero {
-  height: 100vh;
-  /* background-image: url("../images/home-bg.jpg"); */
-  background-repeat: no-repeat;
-  background-position: 60% 0%;
-  background-size: cover;
-  background-attachment: fixed;
+
+/* =========================================================
+   MAIN APPLICATION LAYOUT
+   ========================================================= */
+
+.site-main {
+  /*
+   * Main content expands and pushes footer to the bottom
+   * when there isn't enough content to fill the screen.
+   */
+  flex: 1 0 auto;
+
+  width: 100%;
+  display: block;
+
+  /*
+   * Header is fixed, so content needs to start below it.
+   */
+  padding-top: var(--nav-h);
 }
 
-#skills i {
-  height: 100px;
-  width: 100px;
+
+/*
+ * Router outlet itself does not need to be flex.
+ * The routed component naturally occupies the available
+ * main content area.
+ */
+router-outlet {
+  display: contents;
 }
 
-#portfolio img {
-  height: 300px;
-  object-fit: cover;
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
-#about .img,
-#about img,
-.hire-text h2 {
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--accent-1);
+  color: #fff;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-400);
+  border-radius: var(--r-pill);
+  border: 2px solid var(--surface-50);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-500);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+
+  color: var(--ink-800);
+
+  margin: 0;
+
+  letter-spacing: -0.01em;
+
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--ink-600);
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  font-family: var(--font-display);
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: var(--accent-1);
+
+  background: var(--accent-soft);
+
+  padding: 0.35rem 0.85rem;
+
+  border-radius: var(--r-pill);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+  text-align: center;
+
+  max-width: 640px;
+
+  margin: 0 auto 3rem;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 0.9rem;
+}
+
+.section-heading p {
+  margin-top: 0.6rem;
+
+  color: var(--ink-500);
+
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   LAYOUT HELPERS
+   ========================================================= */
+
+.container {
+  width: 100%;
+
+  max-width: var(--container-w);
+
+  margin: 0 auto;
+
+  padding: 0 1.5rem;
+}
+
+.container-fluid {
+  padding: 0 1rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.page-section {
+  padding: 1.5rem 0;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+  --btn-h: 3.1rem;
+
   position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  height: var(--btn-h);
+
+  padding: 0 1.7rem;
+
+  font-family: var(--font-body);
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  border-radius: var(--r-pill);
+
+  text-decoration: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  isolation: isolate;
+
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
 }
 
-/* Timeline background line */
-#about .img::before {
-  content: "";
-  left: 50%;
-  width: 4px;
-  position: absolute;
-  height: calc(100% + 140px);
-  background: var(--gray-color);
+.btn:active {
+  transform: translateY(1px) scale(0.99);
 }
 
-#about img,
-#about .hire-text h2 {
-  width: 140px;
+.btn-primary {
+  background: var(--accent-grad);
+
+  color: #fff;
+
+  box-shadow: var(--shadow-glow);
 }
 
-#about .hire-text h2 {
-  height: 140px;
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.2),
+    0 22px 48px -14px rgba(37, 99, 235, 0.45);
 }
 
-.social-icons a {
-  width: 40px;
-  height: 40px;
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.6);
+
+  color: var(--ink-800);
+
+  border: 1px solid var(--border-soft);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
 }
 
-footer .social-icons a {
-  width: 30px;
-  height: 30px;
+.btn-secondary:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--accent-1);
+
+  color: var(--accent-1);
+
+  box-shadow: var(--shadow-sm);
 }
 
-#cv img {
-  width: 230px;
+
+/* =========================================================
+   CARDS & GLASS SURFACES
+   ========================================================= */
+
+.card {
+  background-color: var(--surface-0);
+
+  box-shadow: var(--shadow-sm);
+
+  border: 1px solid var(--border-soft);
+
+  border-radius: var(--r-md);
+
+  padding: 1.5rem;
+
+  margin-bottom: 1rem;
+
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out);
 }
 
-/* Contact section background image */
-#contact {
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  /* background-image: url("../images/contact-bg.jpeg"); */
+.card-header {
+  font-size: 1.25rem;
+
+  border-bottom: 2px solid var(--accent-1);
+
+  padding-bottom: 0.5rem;
+
+  margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 990px) {
-  #skills .card {
-    width: calc(100% / 2 - 10px) !important;
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media screen and (max-width: 668px) {
-  #skills .card,
-  #portfolio .card-wrapper {
-    width: 100% !important;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
- #about .hire-text h2 {
-   height: 70px;
-   width: 70px;
- }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal {
+  animation:
+    riseIn var(--dur-slow)
+    var(--ease-out)
+    both;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.001ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .page-section {
+    padding: 4.5rem 0;
+  }
+
+  .btn {
+    --btn-h: 2.85rem;
+
+    padding: 0 1.4rem;
+
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 1.1rem;
+  }
+
+  .container {
+    padding: 0 1.1rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .page-section {
+    padding: 3.5rem 0;
+  }
+
+  .card {
+    padding: 0.9rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE HEIGHT FIX
+   ========================================================= */
+
+/*
+ * Prevents the footer layout from breaking on mobile
+ * browsers where the address bar changes viewport height.
+ */
+
+@supports (min-height: 100dvh) {
+
+  body {
+    min-height: 100dvh;
+  }
+
+  app-root {
+    min-height: 100dvh;
+  }
 }

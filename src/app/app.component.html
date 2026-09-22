@@ -1,41 +1,62 @@
-<!-- <header>
-  <nav>
-    <ul>
-      <li><a href="/portfolio" routerLinkActive="active">Home</a></li>
-      <li><a href="portfolio/resume" routerLinkActive="active">Resume</a></li>
-      <li><a href="portfolio/projects" routerLinkActive="active">Projects</a></li>
-      <li><a href="portfolio/contact" routerLinkActive="active">Contact</a></li>
-    </ul>
-  </nav>
-</header> -->
-   <!-- Header & Navbar -->
-   <header class=" fixed-top">
-    <nav class="container-xxl navbar navbar-expand-lg ">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold fs-3 text-white" href="/portfolio">Venkat Kothakota</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="portfolio/skills">SKILLS</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="portfolio/projects">PORTFOLIO</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="portfolio/about">ABOUT</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="portfolio/resume">RESUME</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="portfolio/contact">CONTACT</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+<header class="site-header" [class.scrolled]="scrolled">
+  <div class="container nav-inner">
+    <a class="brand" routerLink="/" (click)="closeMenu()">
+      <span class="brand-mark">VK</span>
+      <span class="brand-name">Venkat Kothakota</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [class.active]="menuOpen"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="primary-nav"
+      aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="primary-nav" class="nav-links" [class.open]="menuOpen">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/portfolio/skills" routerLinkActive="active" (click)="closeMenu()">Skills</a>
+      <a routerLink="/portfolio/projects" routerLinkActive="active" (click)="closeMenu()">Projects</a>
+      <a routerLink="/portfolio/certifications" routerLinkActive="active" (click)="closeMenu()">Certifications</a>
+      <a routerLink="/portfolio/resume" routerLinkActive="active" (click)="closeMenu()">Resume</a>
+      <a routerLink="/portfolio/contact" routerLinkActive="active" (click)="closeMenu()" class="nav-cta">Contact</a>
     </nav>
-  </header>
-<router-outlet />
+  </div>
+</header>
+
+<main class="site-main">
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-name">Venkat Narayana Kothakota</span>
+      <span class="footer-role">Frontend / UI Developer</span>
+    </div>
+
+    <nav class="footer-links">
+      <a routerLink="/portfolio/skills">Skills</a>
+      <a routerLink="/portfolio/projects">Projects</a>
+      <a routerLink="/portfolio/certifications">Certifications</a>
+      <a routerLink="/portfolio/resume">Resume</a>
+      <a routerLink="/portfolio/contact">Contact</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/venkat-narayana-kothakota-5b28a01a1" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="mailto:kothakotavenkatnarayana@gmail.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Venkat Narayana Kothakota. All rights reserved.</p>
+  </div>
+</footer>

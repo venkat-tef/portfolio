@@ -1,44 +1,64 @@
-<div class="outer">
-  <main class="main">
-    <div class="header">
-      <div class="logo-container">
-        <img class="logo" />
+<section class="contact-page page-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">{{ var_greetings }}, let's talk</span>
+        <h1>Let's work together</h1>
+        <p class="contact-sub">
+          Have a project in mind or an opportunity to discuss? I'd love to hear
+          from you — fill out the form and I'll get back to you as soon as I can.
+        </p>
+
+        <div class="contact-details">
+          <a href="mailto:{{ email }}" class="detail-row">
+            <i class="fa-solid fa-envelope"></i> {{ email }}
+          </a>
+          <a href="tel:{{ phone }}" class="detail-row">
+            <i class="fa-solid fa-phone"></i> {{ phone }}
+          </a>
+        </div>
+
+        <div class="social-row">
+          <a [href]="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:{{ email }}" aria-label="Email" class="social-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-card glass-panel reveal">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" formControlName="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" formControlName="email" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me a bit about what you have in mind..." formControlName="message" required></textarea>
+          </div>
+
+          <p id="error-message" *ngIf="showError">
+            <i class="fa-solid fa-circle-exclamation"></i> There was an error submitting the form. Please try again.
+          </p>
+
+          <button type="submit" id="submit-button" class="btn btn-primary">
+            Send Message
+          </button>
+        </form>
       </div>
     </div>
-    <div class="edit">
-      <h1 style="color: #007bff; margin-bottom: 20px;">Hello, {{ var_greetings }}</h1>
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <!-- Name Field -->
-        <label for="name" style="font-weight: bold;">NAME</label>
-        <input type="text" id="name" placeholder="Enter Your Name" formControlName="name" required />
-      
-        <!-- Email Field -->
-        <label for="email" style="font-weight: bold;">EMAIL</label>
-        <input type="text" id="email" placeholder="Enter Your Email" formControlName="email" required />
-      
-        <!-- Message Field -->
-        <label for="message" style="font-weight: bold;">MESSAGE</label>
-        <textarea id="message" placeholder="Enter Your Message" formControlName="message" required></textarea>
-      
-        <!-- Error Message Element -->
-        <p id="error-message" *ngIf="showError">
-          <span style="color: red;">There was an error submitting the form. Please try again.</span>
-        </p>
-      
-        <!-- Success Message Element -->
-        <div id="success-message"  [ngClass]="{ 'show': showSuccess }">
-          <p>Form submitted successfully!</p>
-        </div>
-      
-        <div>
-          <!-- Submit button -->
-          <button type="submit" id="submit-button">Submit</button>
-      
-          <!-- Create button, hidden by default -->
-          <button type="button" id="create-button" style="display: none">Create</button>
-        </div>
-      </form>
-      
-    </div>
-  </main>
-</div>
+  </div>
+
+  <div id="success-message" [ngClass]="{ 'show': showSuccess }">
+    <i class="fa-solid fa-circle-check"></i>
+    <p>Form submitted successfully!</p>
+  </div>
+</section>

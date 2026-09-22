@@ -1,0 +1,44 @@
+<header class="navbar" [class.navbar-scrolled]="isScrolled">
+  <div class="navbar-inner">
+    <a routerLink="/" class="brand" (click)="closeMenu()">{{ name }}</a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <a
+        *ngFor="let item of navItems"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+        >{{ item.label }}</a
+      >
+    </nav>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-controls="mobile-nav"
+      [attr.aria-label]="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
+    >
+      <app-icon [name]="isMenuOpen ? 'close' : 'menu'" [size]="24"></app-icon>
+    </button>
+  </div>
+
+  <!-- Mobile overlay + panel -->
+  <div class="mobile-backdrop" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+  <nav
+    id="mobile-nav"
+    class="mobile-nav"
+    [class.open]="isMenuOpen"
+    aria-label="Mobile"
+  >
+    <a
+      *ngFor="let item of navItems"
+      [routerLink]="item.path"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+      (click)="closeMenu()"
+      >{{ item.label }}</a
+    >
+  </nav>
+</header>

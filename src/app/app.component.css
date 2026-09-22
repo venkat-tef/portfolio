@@ -1,141 +1,813 @@
-/* Global Styles */
+/* =========================================================
+   GLOBAL APP LAYOUT
+   ========================================================= */
+
+/*
+ * The Angular root must occupy the full viewport.
+ * This is what allows the footer to stay at the bottom
+ * when the current page doesn't have much content.
+ */
+
+html,
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
+  min-height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Header Styles */
-header {
-  background: linear-gradient(to right, #008DDA, #00A9FF); /* Semi-transparent background */
-  /* padding: 10px 20px; */
-  /* width: 100%; */
-  z-index: 1000;
-  position: relative; /* Use relative positioning to ensure flow of content */
+
+body {
+  min-height: 100dvh;
 }
 
-/* Navigation Styles */
-header nav ul {
+
+/*
+ * Angular root element.
+ *
+ * If your app component selector is <app-root>,
+ * this makes the complete application a vertical flex layout.
+ */
+
+app-root {
+  min-height: 100dvh;
+
   display: flex;
-  justify-content: flex-end;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+
+  flex-direction: column;
 }
 
-header nav ul li {
-  margin: 0 20px;
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+
+.site-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  height: var(--nav-h);
+
+  display: flex;
+
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    background var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    height var(--dur-med) var(--ease-out);
 }
 
-header nav ul li a {
-  color: white;
+
+.site-header.scrolled {
+  height: 64px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  border-bottom-color: var(--border-soft);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   NAV INNER
+   ========================================================= */
+
+.nav-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.65rem;
+
   text-decoration: none;
-  font-size: 1.2rem;
+
+  color: var(--ink-800);
 }
 
-header nav ul li a.active {
-  text-decoration: underline;
+
+.brand-mark {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background: var(--accent-grad);
+
+  color: #fff;
+
+  font-family: var(--font-display);
+
+  font-weight: 700;
+
+  font-size: 0.95rem;
+
+  box-shadow: var(--shadow-glow);
 }
 
-/* Global Container */
-.resume-container {
-  max-width: 100%;
-  /* margin: 2rem auto; */
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  padding: 2rem;
-  animation: fadeIn 1.5s ease-in-out;
-  padding-top: 70px; /* Ensure there's enough space for the fixed header */
+
+.brand-name {
+  font-family: var(--font-display);
+
+  font-weight: 700;
+
+  font-size: 1.08rem;
+
+  letter-spacing: -0.01em;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .resume-container {
-    padding: 1.5rem;
-    padding-top: 80px; /* Adjusted to make room for mobile header */
+
+/* =========================================================
+   DESKTOP NAVIGATION
+   ========================================================= */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+}
+
+
+.nav-links a {
+  position: relative;
+
+  text-decoration: none;
+
+  color: var(--ink-600);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  padding: 0.55rem 1rem;
+
+  border-radius: var(--r-pill);
+
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+
+.nav-links a:hover {
+  color: var(--ink-900);
+
+  background: var(--surface-100);
+}
+
+
+.nav-links a.active {
+  color: var(--accent-1);
+
+  background: var(--accent-soft);
+}
+
+
+/* =========================================================
+   CONTACT BUTTON
+   ========================================================= */
+
+.nav-links a.nav-cta {
+  margin-left: 0.5rem;
+
+  color: #fff;
+
+  background: var(--accent-grad);
+
+  box-shadow: var(--shadow-glow);
+}
+
+
+.nav-links a.nav-cta:hover,
+.nav-links a.nav-cta.active {
+  color: #fff;
+
+  background: var(--accent-grad);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MOBILE HAMBURGER
+   ========================================================= */
+
+.menu-toggle {
+  display: none;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 5px;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: var(--r-sm);
+
+  border: 1px solid var(--border-soft);
+
+  background: rgba(255, 255, 255, 0.7);
+
+  cursor: pointer;
+}
+
+
+.menu-toggle span {
+  display: block;
+
+  width: 20px;
+  height: 2px;
+
+  background: var(--ink-800);
+
+  border-radius: 2px;
+
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
+
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+/*
+ * THIS IS THE MAIN FIX.
+ *
+ * flex: 1 means:
+ * "Take all remaining vertical space between
+ * the fixed header area and footer."
+ *
+ * min-width: 0 prevents horizontal overflow from
+ * wide page content.
+ */
+
+.site-main {
+  display: block;
+
+  width: 100%;
+
+  /*
+   * Header is fixed, so reserve its space.
+   */
+  padding-top: var(--nav-h);
+
+  /*
+   * Push footer down when content is short.
+   */
+  flex: 1 0 auto;
+
+  min-width: 0;
+}
+
+
+/*
+ * Prevent router content from causing strange
+ * horizontal overflow.
+ */
+
+.site-main > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  width: 100%;
+
+  flex-shrink: 0;
+
+  /*
+   * No fixed position.
+   * It remains part of the document flow.
+   *
+   * Because .site-main has flex: 1,
+   * the footer is automatically pushed
+   * to the bottom on short pages.
+   */
+
+  margin-top: 0;
+
+  background: var(--ink-800);
+
+  color: rgba(255, 255, 255, 0.7);
+
+  padding-top: 3rem;
+}
+
+
+/* =========================================================
+   FOOTER INNER
+   ========================================================= */
+
+.footer-inner {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  padding-bottom: 2.5rem;
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+   ========================================================= */
+
+.footer-brand {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.3rem;
+
+  flex-shrink: 0;
+}
+
+
+.footer-brand .brand-name {
+  color: #fff;
+
+  font-size: 1.05rem;
+}
+
+
+.footer-role {
+  font-size: 0.88rem;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+   ========================================================= */
+
+.footer-links {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 1.4rem;
+}
+
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+
+  text-decoration: none;
+
+  font-size: 0.92rem;
+
+  font-weight: 500;
+
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+
+.footer-links a:hover {
+  color: #fff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   FOOTER SOCIAL
+   ========================================================= */
+
+.footer-social {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+}
+
+
+.footer-social a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+
+.footer-social a:hover {
+  background: var(--accent-grad);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  padding: 1.25rem 1rem;
+
+  text-align: center;
+}
+
+
+.footer-bottom p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 860px) {
+
+  /* -------------------------------
+     Hamburger
+     ------------------------------- */
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-  }
 
-  .header-text h1 {
-    font-size: 1.5rem;
-  }
+  /* -------------------------------
+     Mobile Navigation
+     ------------------------------- */
 
-  .header-text p {
-    font-size: 0.9rem;
-  }
+  .nav-links {
+    position: fixed;
 
-  .download-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
+    top: var(--nav-h);
 
-  h2 {
-    font-size: 1.2rem;
-  }
+    left: 0;
+    right: 0;
 
-  .experience-item, .project-item, .education-item {
-    padding: 0.8rem;
-  }
-
-  header nav ul {
     flex-direction: column;
-    align-items: center;
-    /* background: linear-gradient(to right, #2193b0, #6dd5ed);  */
-    /* padding: 1rem; */
-    /* margin: 0;  */
-    /* width: 100%; */
+
+    align-items: stretch;
+
+    gap: 0.25rem;
+
+    background:
+      rgba(255, 255, 255, 0.96);
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom:
+      1px solid
+      var(--border-soft);
+
+    box-shadow: var(--shadow-md);
+
+    padding:
+      0.75rem
+      1.25rem
+      1.25rem;
+
+    transform: translateY(-12px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+      transform var(--dur-med) var(--ease-out),
+      opacity var(--dur-med) var(--ease-out);
   }
 
-  header nav ul li {
-    margin: 10px 0;
+
+  .nav-links.open {
+    transform: translateY(0);
+
+    opacity: 1;
+
+    pointer-events: auto;
   }
 
-  header nav ul li a {
-    font-size: 1rem;
+
+  .nav-links a {
+    padding:
+      0.85rem
+      1rem;
+
+    text-align: left;
+  }
+
+
+  .nav-links a.nav-cta {
+    margin-left: 0;
+
+    text-align: center;
+  }
+
+
+  /* -------------------------------
+     Footer tablet
+     ------------------------------- */
+
+  .footer-inner {
+    justify-content: center;
+
+    text-align: center;
+  }
+
+
+  .footer-brand {
+    text-align: center;
+  }
+
+
+  .footer-links {
+    justify-content: center;
+  }
+
+
+  .footer-social {
+    justify-content: center;
   }
 }
 
-@media (max-width: 480px) {
-  .resume-container {
-    padding: 1rem;
-    padding-top: 90px; /* Adjusted to make room for mobile header */
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  /* -------------------------------
+     Header
+     ------------------------------- */
+
+  .site-header {
+    height: var(--nav-h);
   }
 
-  .profile-picture {
-    width: 80px;
-    height: 80px;
+
+  .site-header.scrolled {
+    height: 60px;
   }
 
-  .header-text h1 {
-    font-size: 1.2rem;
+
+  .brand {
+    gap: 0.5rem;
   }
 
-  .header-text p {
-    font-size: 0.8rem;
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+
+    font-size: 0.9rem;
   }
 
-  .download-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
+
+  .brand-name {
+    font-size: 0.95rem;
   }
 
-  h2 {
+
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  /* -------------------------------
+     Main
+     ------------------------------- */
+
+  .site-main {
+    padding-top: var(--nav-h);
+
+    /*
+     * Keep flex behavior on mobile too.
+     */
+    flex: 1 0 auto;
+  }
+
+
+  /* -------------------------------
+     Footer
+     ------------------------------- */
+
+  .site-footer {
+    padding-top: 2.5rem;
+
+    /*
+     * Never use position: fixed here.
+     * It would cover page content.
+     */
+    position: relative;
+  }
+
+
+  .footer-inner {
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 1.25rem;
+
+    padding-bottom: 1.75rem;
+
+    text-align: center;
+  }
+
+
+  .footer-brand {
+    width: 100%;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  .footer-brand .brand-name {
     font-size: 1rem;
   }
 
-  .experience-item, .project-item, .education-item {
-    padding: 0.6rem;
+
+  .footer-role {
+    font-size: 0.82rem;
   }
 
-  header nav ul li a {
-    font-size: 0.9rem;
+
+  .footer-links {
+    width: 100%;
+
+    justify-content: center;
+
+    gap:
+      0.8rem
+      1.1rem;
+  }
+
+
+  .footer-links a {
+    font-size: 0.82rem;
+  }
+
+
+  .footer-social {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .footer-bottom {
+    padding:
+      1rem
+      1rem;
+  }
+
+
+  .footer-bottom p {
+    font-size: 0.72rem;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .brand-name {
+    font-size: 0.88rem;
+  }
+
+
+  .footer-links {
+    gap:
+      0.7rem
+      0.9rem;
+  }
+
+
+  .footer-links a {
+    font-size: 0.78rem;
+  }
+
+
+  .footer-bottom p {
+    font-size: 0.68rem;
   }
 }

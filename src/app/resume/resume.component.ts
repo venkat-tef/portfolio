@@ -96,7 +96,7 @@ export class ResumeComponent implements OnInit {
       const html2pdf = (await import('html2pdf.js')).default;
   
       // Temporarily hide the download button
-      const downloadButton = document.querySelector('.download-button');
+      const downloadButton = document.querySelector('.download-btn');
       if (downloadButton) {
         downloadButton.classList.add('hidden');
       }

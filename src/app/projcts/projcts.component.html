@@ -1,24 +1,39 @@
-<div class="projects-container">
-  <h1>My Projects</h1>
-  <div class="project-cards">
-    <div *ngFor="let project of projects" class="project-card">
-      <img [src]="project.logo" alt="{{ project.name }} logo" class="project-logo"> <!-- Add logo here -->
-      <!-- <h2>{{ project.name }}</h2> -->
-      <p><strong>{{ project.role }}</strong></p>
-      <p><strong>{{ project.organization }}</strong></p>
-      <button (click)="openDescription(project.description)">View Description</button>
+<section class="projects-section page-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow"><i class="fa-solid fa-diagram-project"></i>&nbsp;Selected Work</span>
+      <h2>Projects</h2>
+      <p>A look at the applications and interfaces I've helped build in production.</p>
+    </div>
+
+    <div class="project-cards">
+      <article
+        *ngFor="let project of projects; let i = index"
+        class="project-card reveal"
+        [style.animation-delay.ms]="i * 90">
+        <div class="project-logo-wrap">
+          <img [src]="project.logo" alt="{{ project.name }} logo" class="project-logo">
+        </div>
+        <div class="project-body">
+          <h3>{{ project.name }}</h3>
+          <div class="project-meta">
+            <span class="chip"><i class="fa-solid fa-user-tie"></i>{{ project.role }}</span>
+            <span class="chip"><i class="fa-solid fa-building"></i>{{ project.organization }}</span>
+          </div>
+          <button (click)="openDescription(project.description)" class="btn btn-secondary project-btn">
+            View Description <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+      </article>
     </div>
   </div>
 
   <!-- Popup modal for the description -->
-  <div class="modal" *ngIf="showDescription">
-    <div class="modal-content">
-      <span class="close" (click)="closeDescription()">&times;</span>
+  <div class="modal" *ngIf="showDescription" (click)="closeDescription()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close" (click)="closeDescription()" aria-label="Close">&times;</button>
       <div class="modal-header">Project Description</div>
-      <div class="modal-body">
-        <p [innerHTML]="currentDescription"></p>
-      </div>
+      <div class="modal-body" [innerHTML]="currentDescription"></div>
     </div>
   </div>
-  
-</div>
+</section>

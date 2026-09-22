@@ -1,0 +1,135 @@
+<header class="site-header" [class.scrolled]="scrolled">
+  <div class="container nav-inner">
+
+    <a class="brand" routerLink="/" (click)="closeMenu()">
+      <span class="brand-mark">VK</span>
+      <span class="brand-name">Venkat Kothakota</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [class.active]="menuOpen"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="primary-nav"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="primary-nav" class="nav-links" [class.open]="menuOpen">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+      >
+        Home
+      </a>
+
+      <a
+        routerLink="/portfolio/skills"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        Skills
+      </a>
+
+      <a
+        routerLink="/portfolio/projects"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        Projects
+      </a>
+
+      <a
+        routerLink="/portfolio/certifications"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        Certifications
+      </a>
+
+      <a
+        routerLink="/portfolio/resume"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        Resume
+      </a>
+
+      <a
+        routerLink="/portfolio/contact"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+        class="nav-cta"
+      >
+        Contact
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main class="site-main">
+  <router-outlet></router-outlet>
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      <span class="brand-name">
+        Venkat Narayana Kothakota
+      </span>
+
+      <span class="footer-role">
+        Frontend / UI Developer
+      </span>
+    </div>
+
+    <nav class="footer-links">
+      <a routerLink="/portfolio/skills">Skills</a>
+      <a routerLink="/portfolio/projects">Projects</a>
+      <a routerLink="/portfolio/certifications">Certifications</a>
+      <a routerLink="/portfolio/resume">Resume</a>
+      <a routerLink="/portfolio/contact">Contact</a>
+    </nav>
+
+    <div class="footer-social">
+
+      <a
+        href="https://www.linkedin.com/in/venkat-narayana-kothakota-5b28a01a1"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
+      <a
+        href="mailto:kothakotavenkatnarayana@gmail.com"
+        aria-label="Email"
+      >
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      &copy; {{ currentYear }} Venkat Narayana Kothakota.
+      All rights reserved.
+    </p>
+  </div>
+
+</footer>

@@ -4,6 +4,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { ProjctsComponent } from './projcts/projcts.component';
 import { ContactComponent } from './contact/contact.component';
 import { SkillsComponent } from './skills/skills.component';
+import { CertificationsComponent } from './certifications/certifications.component';
 
 
 export const routes: Routes = [
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'portfolio/resume', component: ResumeComponent },
   { path: 'portfolio/projects', component: ProjctsComponent },
   { path: 'portfolio/contact', component: ContactComponent },
-  { path: 'portfolio/skills', component: SkillsComponent }
+  { path: 'portfolio/skills', component: SkillsComponent },
+  { path: 'portfolio/certifications', component: CertificationsComponent }
 ];

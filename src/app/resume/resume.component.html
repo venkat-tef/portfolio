@@ -1,62 +1,69 @@
-<div class="resume-container">
-  <header class="resume-header">
-    <div class="profile-header">
-      <img src="assets/resume-image.jpg" alt="Profile Picture" class="profile-picture"/>
-      <div class="header-text">
-        <h1>{{ name }}</h1>
-        <p>{{ title }} - {{ location }}</p>
-        <p>
-          <a [href]="linkedin" target="_blank">LinkedIn Profile</a> |
-          {{ email }} | {{ phone }}
-        </p>
+<section class="resume-page page-section">
+  <div class="container resume-container reveal">
+    <header class="resume-header">
+      <div class="profile-header">
+        <img src="assets/resume-image.jpg" alt="Profile picture of {{ name }}" class="profile-picture"/>
+        <div class="header-text">
+          <span class="eyebrow">{{ title }}</span>
+          <h1>{{ name }}</h1>
+          <div class="contact-row">
+            <a [href]="linkedin" target="_blank" rel="noopener" class="contact-chip">
+              <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+            </a>
+            <span class="contact-chip"><i class="fa-solid fa-location-dot"></i> {{ location }}</span>
+            <a href="mailto:{{ email }}" class="contact-chip"><i class="fa-solid fa-envelope"></i> {{ email }}</a>
+            <span class="contact-chip"><i class="fa-solid fa-phone"></i> {{ phone }}</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <button (click)="downloadPDF()" class="download-btn">
-      Download Resume
-    </button>
-  </header>
+      <button (click)="downloadPDF()" class="btn btn-primary download-btn">
+        <i class="fa-solid fa-download"></i> Download Resume
+      </button>
+    </header>
 
-  <section class="summary">
-    <h2>Professional Summary</h2>
-    <p>{{ summary }}</p>
-  </section>
+    <section class="resume-block">
+      <h2><i class="fa-solid fa-user"></i> Professional Summary</h2>
+      <p>{{ summary }}</p>
+    </section>
 
-  <section class="experience">
-    <h2>Work Experience</h2>
-    <div *ngFor="let exp of experiences" class="experience-item">
-      <h3>{{ exp.role }} - {{ exp.company }}</h3>
-      <p><strong>{{ exp.location }}</strong> | {{ exp.period }}</p>
-      <!-- Use [innerHTML] to bind HTML content -->
-      <div [innerHTML]="exp.description"></div>
-    </div>
-  </section>
-  
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li *ngFor="let skill of skills">{{ skill }}</li>
-    </ul>
-  </section>
+    <section class="resume-block">
+      <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
+      <div class="timeline">
+        <div *ngFor="let exp of experiences" class="experience-item">
+          <h3>{{ exp.role }} &middot; {{ exp.company }}</h3>
+          <p class="experience-meta"><strong>{{ exp.location }}</strong> &nbsp;|&nbsp; {{ exp.period }}</p>
+          <div class="experience-desc" [innerHTML]="exp.description"></div>
+        </div>
+      </div>
+    </section>
 
-  <section class="education">
-    <h2>Education</h2>
-    <div *ngFor="let edu of education" class="education-item">
-      <h3>{{ edu.degree }}</h3>
-      <p>{{ edu.field }} - {{ edu.institution }} | {{ edu.year }}</p>
-    </div>
-  </section>
+    <section class="resume-block">
+      <h2><i class="fa-solid fa-star"></i> Skills</h2>
+      <ul class="skill-pills">
+        <li *ngFor="let skill of skills">{{ skill }}</li>
+      </ul>
+    </section>
 
-  <section class="languages">
-    <h2>Languages</h2>
-    <ul>
-      <li *ngFor="let lang of languages">{{ lang.language }}: {{ lang.proficiency }}</li>
-    </ul>
-  </section>
+    <section class="resume-block">
+      <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+      <div *ngFor="let edu of education" class="education-item">
+        <h3>{{ edu.degree }}</h3>
+        <p>{{ edu.field }} &mdash; {{ edu.institution }} | {{ edu.year }}</p>
+      </div>
+    </section>
 
-  <section class="interests">
-    <h2>Interests</h2>
-    <ul>
-      <li *ngFor="let interest of interests">{{ interest }}</li>
-    </ul>
-  </section>
-</div>
+    <section class="resume-block">
+      <h2><i class="fa-solid fa-language"></i> Languages</h2>
+      <ul class="skill-pills">
+        <li *ngFor="let lang of languages">{{ lang.language }}: {{ lang.proficiency }}</li>
+      </ul>
+    </section>
+
+    <section class="resume-block">
+      <h2><i class="fa-solid fa-heart"></i> Interests</h2>
+      <ul class="skill-pills">
+        <li *ngFor="let interest of interests">{{ interest }}</li>
+      </ul>
+    </section>
+  </div>
+</section>

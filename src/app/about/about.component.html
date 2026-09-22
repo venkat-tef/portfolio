@@ -1,0 +1,54 @@
+<section class="section about-hero" appScrollReveal>
+  <div class="about-hero-grid">
+    <img
+      src="assets/venki.jpg"
+      alt="Portrait of {{ profile.name }}"
+      class="about-photo"
+      loading="lazy"
+      width="360"
+      height="360"
+    />
+    <div>
+      <span class="eyebrow">About Me</span>
+      <h1>Hi, I'm {{ profile.name }}.</h1>
+      <p class="summary">{{ summary }}</p>
+
+      <dl class="quick-facts">
+        <div *ngFor="let fact of quickFacts">
+          <dt>{{ fact.label }}</dt>
+          <dd>{{ fact.value }}</dd>
+        </div>
+      </dl>
+
+      <div class="about-actions">
+        <a routerLink="/resume" class="btn btn-primary">
+          View Full Resume
+          <app-icon name="arrow-right" [size]="18"></app-icon>
+        </a>
+        <a routerLink="/contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section beyond-code">
+  <div class="section-heading" appScrollReveal>
+    <span class="eyebrow">Beyond Code</span>
+    <h2>Outside of Work</h2>
+    <p>A few things that keep me curious when I step away from the screen.</p>
+  </div>
+
+  <div class="interest-grid">
+    <div
+      class="interest-card card"
+      *ngFor="let interest of interests; let i = index"
+      [appScrollReveal]="i * 80"
+    >
+      <div class="interest-icon">
+        <app-icon [name]="interest.icon" [size]="24"></app-icon>
+      </div>
+      <h3>{{ interest.title }}</h3>
+      <p>{{ interest.description }}</p>
+    </div>
+  </div>
+</section>

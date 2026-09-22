@@ -1,24 +1,228 @@
-<!-- landing.component.html -->
-<div class="landing-page">
-  <div class="welcome-message">
-    <h2>Welcome to My Portfolio!</h2>
-    <p>Explore my work and learn more about what I do.</p>
-    
-  </div>
-  <video autoplay muted style="zoom: 80%;">
-    <source src="assets/hii.mp4" type="video/mp4">
-    <source src="asset/hii.mp4" type="video/webm">
-    Your browser does not support the video tag.
-  </video>
-  
-  <div class="hero-section hidden">
-    <h1>Venkat Narayana Kothakota</h1>
-    <p>Frontend Developer based in Hyderabad</p>
-    <div class="hero-buttons">
-      <a href="portfolio/resume" class="btn-primary">View Resume</a>
-      <a href="portfolio/projects" class="btn-secondary">My Projects</a>
-    </div>
+<section class="hero">
+
+  <!-- =========================================================
+       BACKGROUND
+       ========================================================= -->
+
+  <div
+    class="hero-bg"
+    aria-hidden="true">
+
+    <span class="blob blob-a"></span>
+    <span class="blob blob-b"></span>
+    <span class="grid-overlay"></span>
+
   </div>
 
-  <div class="tread-design hidden"></div> <!-- Tread design element -->
-</div>
+
+  <!-- =========================================================
+       STAGE 1
+       FULL SCREEN VIDEO
+       ========================================================= -->
+
+  <div
+    class="hero-video-stage"
+    [class.fade-out]="showDetails">
+
+
+  <video
+  #heroVideo
+  class="hero-video-full"
+  autoplay
+  muted
+  playsinline
+  webkit-playsinline="true"
+  preload="auto"
+  disablePictureInPicture
+  (ended)="onVideoEnded()"
+  (error)="onVideoError()">
+
+  <source
+    src="assets/hii.mp4"
+    type="video/mp4">
+
+  Your browser does not support the video tag.
+</video>
+
+
+    <!-- =======================================================
+         PREMIUM VIDEO INTRO TEXT
+         ======================================================= -->
+
+    <div class="welcome-caption">
+
+      <span class="welcome-kicker">
+
+        <span class="kicker-line"></span>
+
+        WELCOME
+
+        <span class="kicker-line"></span>
+
+      </span>
+
+
+      <h2>
+
+        Welcome to my
+        <span>creative space.</span>
+
+      </h2>
+
+
+      <p>
+        Design · Development · Digital Experiences
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       STAGE 2
+       PORTFOLIO DETAILS
+       ========================================================= -->
+
+  <div
+    class="hero-details"
+    [class.show]="showDetails">
+
+
+    <!-- Availability -->
+
+    <span class="eyebrow">
+
+      <i class="fa-solid fa-code"></i>
+
+      &nbsp;
+
+      Available for new opportunities
+
+    </span>
+
+
+    <!-- Name -->
+
+    <h1>
+
+      Venkat Narayana
+
+      <span class="text-gradient">
+        Kothakota
+      </span>
+
+    </h1>
+
+
+    <!-- Role -->
+
+    <p class="hero-role">
+      UI Developer, Hyderabad
+    </p>
+
+
+    <!-- Description -->
+
+    <p class="hero-sub">
+
+      I build clean, responsive interfaces with Angular
+      and modern front-end tooling — from pixel-accurate
+      UI to production-ready web apps.
+
+    </p>
+
+
+    <!-- Buttons -->
+
+    <div class="hero-buttons">
+
+      <a
+        routerLink="/portfolio/resume"
+        class="btn btn-primary">
+
+        View Resume
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </a>
+
+
+      <a
+        routerLink="/portfolio/projects"
+        class="btn btn-secondary">
+
+        My Projects
+
+      </a>
+
+    </div>
+
+
+    <!-- Stats -->
+
+    <div class="hero-stats">
+
+
+      <div class="stat">
+
+        <span class="stat-num">
+          3+
+        </span>
+
+        <span class="stat-label">
+          Years experience
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span class="stat-num">
+          10+
+        </span>
+
+        <span class="stat-label">
+          Apps shipped
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span class="stat-num">
+          HTML · CSS · JS
+        </span>
+
+        <span class="stat-label">
+          Angular · TypeScript
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       SCROLL CUE
+       ========================================================= -->
+
+  <a
+    routerLink="/portfolio/skills"
+
+    class="scroll-cue"
+
+    [class.show]="showDetails"
+
+    aria-label="Explore my skills">
+
+    <span></span>
+
+  </a>
+
+</section>
