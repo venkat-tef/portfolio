@@ -571,7 +571,7 @@ p {
 @media (max-width: 768px) {
 
   .page-section {
-    padding: 4.5rem 0;
+    padding: 1.5rem 0;
   }
 
   .btn {
@@ -595,7 +595,7 @@ p {
 @media (max-width: 480px) {
 
   .page-section {
-    padding: 3.5rem 0;
+    padding: 1.5rem 0;
   }
 
   .card {
